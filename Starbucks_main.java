@@ -81,7 +81,7 @@ public class Starbucks_main {
         scanner.close();
     }
 
-    // ---- Menu loading ----
+    //Menu loading 
     private static boolean loadMenu(String csvPath, Map<String, Drink> menu) {
         try (BufferedReader br = new BufferedReader(new FileReader(csvPath))) {
             String line;
@@ -136,7 +136,7 @@ public class Starbucks_main {
 
     private static String typeOf(Drink d) { return d.getClass().getSimpleName().toLowerCase(); }
 
-    // ---- Option 1: show all ----
+    //Option 1 show all
     private static void displayAllDrinks(Map<String, Drink> menu) {
         Map<String, List<Drink>> byType = new TreeMap<>();
         for (Drink d : menu.values()) {
@@ -151,7 +151,7 @@ public class Starbucks_main {
         }
     }
 
-    // ---- Option 2: show by type ----
+    //  Option 2 show by type 
     private static void displayDrinksByType(Map<String, Drink> menu, String type) {
         List<Drink> list = new ArrayList<>();
         for (Drink d : menu.values()) {
@@ -183,11 +183,11 @@ public class Starbucks_main {
             case 3: return "refresher";
             case 4: return "frappuccino";
             case 5: return "seasonal";
-            default: return "coffee";
+            default: return "Wrong input Try again";
         }
     }
 
-    // ---- Option 3: ordering flow ----
+    // Option 3 ordering flow
     private static double handleOrderFlow(Scanner scanner, Map<String, Drink> menu, List<OrderItem> sales) {
         double addedTotal = 0.0;
         boolean keepOrdering = true;
@@ -271,7 +271,7 @@ public class Starbucks_main {
         return addedTotal;
     }
 
-    // ---- Option 4: sales summary ----
+    // Option 4 sales summary 
     private static void showSalesSummary(List<OrderItem> sales, double totalPrice) {
         System.out.println("\n=== Today's Sales Summary ===");
         if (sales.isEmpty()) {
@@ -292,7 +292,7 @@ public class Starbucks_main {
         System.out.printf("Revenue: $%.2f%n", totalPrice);
     }
 
-    // ---- Helpers ----
+    // Helpers 
     private static int readInt(Scanner sc) {
         while (true) {
             try {
@@ -309,7 +309,7 @@ public class Starbucks_main {
         return Character.toUpperCase(s.charAt(0)) + s.substring(1);
     }
 
-    // Optional: show drinks from CSV by a text category (coffee/tea/etc.)
+    // Optional: show drinks from CSV by a text category 
     public static void displayDrinks(String category) {
         String csvFile = "menu.csv";
         String line;
